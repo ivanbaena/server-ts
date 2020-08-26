@@ -29,6 +29,10 @@ var LoginController = /** @class */ (function () {
             res.send('Invalid email or password');
         }
     };
+    LoginController.prototype.getLogout = function (req, res) {
+        req.session = null;
+        res.redirect('/');
+    };
     __decorate([
         decorators_1.get('/test'),
         __metadata("design:type", Function),
@@ -48,6 +52,12 @@ var LoginController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginController.prototype, "postLogin", null);
+    __decorate([
+        decorators_1.get('/logout'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginController.prototype, "getLogout", null);
     LoginController = __decorate([
         decorators_1.controller('/auth')
     ], LoginController);
